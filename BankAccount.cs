@@ -48,5 +48,10 @@ namespace BankProgram
                 return "Deposit was successfull, your balance is now: " + balance;
             }
         }
+
+        public string getBalance()
+        {
+            return $"Your balance is: {balance}";
+        }
     }
 }
