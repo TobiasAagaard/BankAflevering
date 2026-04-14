@@ -15,6 +15,8 @@ namespace BankApplication
             accounts.Add(account3);
 
             Console.WriteLine(account1.withdraw(3000));
+            Console.WriteLine(account3.transfer(account1, 5000));
+            Console.WriteLine(account1.getBalance());
         }
     }
 }
