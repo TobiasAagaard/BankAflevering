@@ -5,17 +5,18 @@ namespace BankProgram
         private int id;
         private double balance;
         private string accountName;
-        private const double interestRate = 0.05;
+        private double overdraftInterest;
         private bool allowOverdraft;
         private long overdraftLimit;
 
-        public BankAccount(int id, double balance, string accountName, bool allowOverdraft, long overdraftLimit)
+        public BankAccount(int id, double balance, string accountName, bool allowOverdraft, long overdraftLimit, double overdraftInterest = 0)
         {
             this.id = id;
             this.balance = balance;
             this.accountName = accountName;
             this.allowOverdraft = allowOverdraft;
             this.overdraftLimit = overdraftLimit;
+            this.overdraftInterest = overdraftInterest;
         }
 
         public string AccountName { get { return accountName; } set { accountName = value; }}
@@ -65,6 +66,20 @@ namespace BankProgram
                 balance -= amount;
                 toAccount.balance += amount;
                 return $"{AccountName}: Transfer was successful. You transferred money over to {toAccount.AccountName}, your balance is now: {balance}";
+            }
+        }
+
+        public string ApplyOverdraftInterest()
+        {
+            double interest = balance * overdraftInterest;
+            if (balance < 0)
+            {
+                balance -= interest;
+                return $"{AccountName} has been charged an overdraft interest of {interest}, your balance is now: {balance}";
+            }
+            else
+            {
+                return $"{AccountName}: Can't be charged an overdraft interest, because the balance is not negative.";
             }
         }
         public string getBalance()
