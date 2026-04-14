@@ -1,0 +1,35 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE folders and local settings
+.vs/
+.vscode/
+.idea/
+
+# .NET test and coverage artifacts
+TestResults/
+*.coverage
+*.coveragexml
+
+# NuGet packages and symbols
+*.nupkg
+*.snupkg
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.cache
+~$*
+
+# OS files
+.DS_Store
+Thumbs.db
